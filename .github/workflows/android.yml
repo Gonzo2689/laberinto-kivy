@@ -11,8 +11,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build with Buildozer
+      - name: Build APK
         uses: Digreatbrian/buildozer-action@v1
         with:
-          buildozer_version: stable
-          command: buildozer android debug
+          python-version: 3.8
+          buildozer-cmd: buildozer android debug
+        env:
+          ANDROIDSDK_ACCEPT_LICENSE: "true"
